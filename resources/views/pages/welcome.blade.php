@@ -1,3 +1,7 @@
+@extends('layouts.layout')
+
+@section('blog')
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -65,7 +69,7 @@
     </head>
     <body>
 
-@include('layouts.navbar')
+{{-- @include('layouts.navbar') --}}
 
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -101,3 +105,5 @@
         </div>
     </body>
 </html>
+
+@endsection

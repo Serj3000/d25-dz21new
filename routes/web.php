@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('index');
 })->name('index.blog');
 
+Route::get('/archive-blog', function(){
+    return view('pages.archive_blog');
+})->name('archive-blog.blog');
+
+Route::get('/singl-post', function(){
+    return view('pages.singl_post');
+})->name('singl-post.blog');
+
 Route::get('/about-us', function(){
     return view('pages.about_us');
 })->name('about-us.blog');
@@ -26,5 +34,5 @@ Route::get('/contact', function(){
 })->name('contact.blog');
 
 Route::get('/laravel', function () {
-    return view('welcome');
+    return view('pages.welcome');
 })->name('laravel.blog');

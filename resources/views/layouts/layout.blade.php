@@ -92,16 +92,12 @@
                         </div>
         <!-- Navbar Area -->
 
-
 @include('layouts.navbar')
-
 
     </header>
     <!-- ##### Header Area End ##### -->
 
-
 @yield('blog')
-
 
     <!-- ##### Instagram Area Start ##### -->
     <div class="follow-us-instagram">
