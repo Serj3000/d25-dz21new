@@ -1,6 +1,10 @@
 @extends('layouts.layout')
 
 @section('blog')
+
+@foreach($parametr as $post)
+{{$post}}
+@endforeach
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
         <div class="container">

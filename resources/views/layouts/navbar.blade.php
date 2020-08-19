@@ -25,7 +25,7 @@
                                         <div class="dropdown">
                                             <ul class="single-mega cn-col-4">
                                             @foreach(\App\Category::all() as $category)
-                                                <li><a href="#">- {{$category->name}}</a></li>
+                                                <li><a href="{{route('category.blog', ['category' => $category->id])}}">- {{$category->name}}</a></li>
                                             @endforeach
                                             </ul>
                                         </div>

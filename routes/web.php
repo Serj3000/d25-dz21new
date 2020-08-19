@@ -17,8 +17,18 @@ Route::get('/', function () {
     return view('index');
 })->name('index.blog');
 
+Route::get('/category-{category?}', function(\App\Category $category){
+    $posts=\App\Post::where('category_id', $category)
+            ->latest()
+            ->paginate(5);
+    //dd($category, $posts);
+    return view('pages.archive_blog', ['parametr' => $posts]);
+})->name('category.blog');
+
 Route::get('/archive-blog', function(){
-    return view('pages.archive_blog');
+    $posts=\App\Post::latest()
+            ->paginate(5);
+    return view('pages.archive_blog', ['parametr' => $posts]);
 })->name('archive-blog.blog');
 
 Route::get('/singl-post', function(){
