@@ -15,8 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('index.blog');
+
+Route::get('/about-us', function(){
+    return view('pages.about_us');
+})->name('about-us.blog');
+
+Route::get('/contact', function(){
+    return view('pages.contact');
+})->name('contact.blog');
 
 Route::get('/laravel', function () {
     return view('welcome');
-});
+})->name('laravel.blog');
