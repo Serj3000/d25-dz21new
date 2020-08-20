@@ -18,21 +18,25 @@ Route::get('/', function () {
 })->name('index.blog');
 
 Route::get('/category-{category?}', function(\App\Category $category){
-    $posts=\App\Post::where('category_id', $category)
-            ->latest()
-            ->paginate(5);
-    //dd($category, $posts);
+    $posts=\App\Post::where('category_id', $category->id)
+                    ->latest()
+                    ->paginate(5);
     return view('pages.archive_blog', ['parametr' => $posts]);
 })->name('category.blog');
 
 Route::get('/archive-blog', function(){
     $posts=\App\Post::latest()
-            ->paginate(5);
+                    ->paginate(5);
     return view('pages.archive_blog', ['parametr' => $posts]);
 })->name('archive-blog.blog');
 
-Route::get('/singl-post', function(){
-    return view('pages.singl_post');
+Route::get('singl-post-{id?}', function(\App\Post $id){
+        // //Вариант 1. Счетчик просмотров поста, с методом save()
+    // $id->saw+=1;
+    // $id->save();
+    // //Вариант 2. Счетчик просмотров поста, с методом increment() (без метода save())
+    $id->increment('saw');
+    return view('pages.singl_post', ['post'=>$id]);
 })->name('singl-post.blog');
 
 Route::get('/about-us', function(){

@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('blog')
+
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
         <div class="container">
@@ -34,15 +35,14 @@
                                 <img src="img/blog-img/1.jpg" alt="">
                             </div>
                             <div class="post-content">
-                                <p class="post-date">MAY 8, 2018 / foody</p>
-                                <h4 class="post-title">A Closer Look At Our Front Porch Items From Lowe’s</h4>
+                                <p class="post-date">{{date('M d, Y', strtotime($post->created_at))}} / {{$post->category->name}}</p>
+                                <h4 class="post-title">{{$post->title}}</h4>
                                 <div class="post-meta">
-                                    <a href="#"><span>by</span> Sarah Jenks</a>
-                                    <a href="#"><i class="fa fa-eye"></i> 192</a>
+                                    <a href="#"><span>by</span> {{$post->user->name}}</a>
+                                    <a href="#"><i class="fa fa-eye"></i> {{$post->saw}}</a>
                                     <a href="#"><i class="fa fa-comments"></i> 08</a>
                                 </div>
-                                <p>Ten years ago, laborers hammering away at Prague’s cobblestone streets would probably break for lunch with bag of fluffy rohliky bread rolls and some sliced ham, if they couldn’t make it to a pub for goulash and dumplings. Flash-forward to 2018 and the same stonemasons — as well as local shopkeepers, students and chief executives — are likely to prefer bun bo nam bo or pho soup for lunch at one of the city’s fast and cheap Vietnamese noodle restaurants, which have appeared by the dozens in the Czech capital over the past decade.</p>
-                                <p>What hadn’t shown up, however, was the idea that Vietnamese cuisine can be taken seriously, with complex techniques and in a fancier setting. That changed with last December’s opening of Taro, a surprisingly chic bistro in the forever up-and-coming Smichov neighborhood southwest of Old Town. Run by two brothers, Khanh and Giang Ta, Taro has no evening à la carte menu (there is one at lunch), instead offering just two options for dinner: a four-course tasting menu at 890 koruna (about $40) or a seven-course menu at 1,290 koruna per person, not including drinks. Cheap noodles this ain’t.</p>
+                                <p>{{$post->body}}</p>
                                 <blockquote>
                                     <div class="blockquote-icon">
                                         <img src="img/core-img/quote.png" alt="">
@@ -368,4 +368,5 @@
         </div>
     </section>
     <!-- ##### Blog Content Area End ##### -->
+
 @endsection
