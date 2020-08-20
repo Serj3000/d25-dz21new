@@ -15,6 +15,7 @@ class CreateTouchesTable extends Migration
     {
         Schema::create('touches', function (Blueprint $table) {
             $table->id();
+            // $table->unsignedBigInteger('contact_id');
             $table->string('name',100);
             $table->string('email',100);
             $table->text('message');

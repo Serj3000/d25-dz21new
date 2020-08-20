@@ -7,6 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Contact::class, function (Faker $faker) {
     return [
+            'contact_heading'=>'INFORMATION',
+            'touch_heading'=>'GET IN TOUCH',
             'adress'=>$faker->address ,
             'phone'=>$faker->tollFreePhoneNumber,
             'fax'=>$faker->tollFreePhoneNumber,

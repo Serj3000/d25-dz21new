@@ -50,7 +50,8 @@ Route::get('/about-us', function(){
 })->name('about-us.blog');
 
 Route::get('/contact', function(){
-    return view('pages.contact');
+    $contact=\App\Contact::get()->first();
+    return view('pages.contact', ['contact'=>$contact]);
 })->name('contact.blog');
 
 Route::get('/laravel', function () {

@@ -35,7 +35,8 @@
 
                             <div class="col-12 col-lg-6">
                                 <div class="contact-content">
-                                    <h4>Get In Touch</h4>
+                                    {{-- <h4>Get In Touch</h4> --}}
+                                    <h4>{{$contact->touch_heading}}</h4>
                                     
                                     <!-- Contact Form Area -->
                                     <div class="contact-form-area">
@@ -67,14 +68,14 @@
 
                             <div class="col-12 col-lg-6">
                                 <div class="contact-content contact-information">                                   
-                                    <h4>Information</h4>
+                                    <h4>{{$contact->contact_heading}}</h4>
                                     
                                     <!-- Single Contact Info -->
                                     <div class="single-contact-info d-flex">
                                         <div class="icon">
                                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                                         </div>
-                                        <p>3919 New Cut Rd, Mary land, United State.</p>
+                                        <p>{{$contact->adress}}</p>
                                     </div>
                                     
                                     <!-- Single Contact Info -->
@@ -82,7 +83,7 @@
                                         <div class="icon">
                                             <i class="fa fa-phone" aria-hidden="true"></i>
                                         </div>
-                                        <p>(12)-100-100-100</p>
+                                        <p>{{$contact->phone}}</p>
                                     </div>
                                     
                                     <!-- Single Contact Info -->
@@ -90,7 +91,7 @@
                                         <div class="icon">
                                             <i class="fa fa-print" aria-hidden="true"></i>
                                         </div>
-                                        <p>(12)-112-123-123</p>
+                                        <p>{{$contact->fax}}</p>
                                     </div>
                                     
                                     <!-- Single Contact Info -->
@@ -98,7 +99,7 @@
                                         <div class="icon">
                                             <i class="fa fa-envelope" aria-hidden="true"></i>
                                         </div>
-                                        <p>deercreative@gmail.com</p>
+                                        <p>{{$contact->email}}</p>
                                     </div>
                                     
                                     <!-- Contact Social Info -->
