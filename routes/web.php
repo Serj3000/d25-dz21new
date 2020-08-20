@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//
+Route::get('/layout',function(){
+    return view('layouts.layout');
+});
+//
 Route::get('/', function () {
     $posts=\App\Post::latest()
                     ->paginate(5);

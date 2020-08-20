@@ -6,3 +6,5 @@ select * from categories;
 select * from posts;
 select * from tags;
 select * from post_tag;
+select * from touches;
+select * from contacts;

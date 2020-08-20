@@ -15,7 +15,7 @@
                                         <ul class="dropdown">
                                             <li><a href="{{route('index.blog')}}">Home</a></li>
                                             <li><a href="{{route('archive-blog.blog')}}">Archive Blog</a></li>
-                                            <li><a href="{{route('singl-post.blog', ['id'=>1])}}">Single Post</a></li>
+                                            <li><a href="{{route('singl-post.blog', ['id'=>$id=1])}}">Single Post</a></li>
                                             <li><a href="{{route('about-us.blog')}}">About</a></li>
                                             <li><a href="{{route('contact.blog')}}">Contact</a></li>
                                             <li><a href="typography.html">Typography</a></li>

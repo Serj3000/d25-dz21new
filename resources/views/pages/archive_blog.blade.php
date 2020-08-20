@@ -39,8 +39,8 @@
                             </div>
                         </div>
 
-                        <!-- Single Blog Post -->
-                        @include('layouts.post')
+                    <!-- Single Blog Post -->
+                    @include('layouts.post')
 
                     </div>
 
