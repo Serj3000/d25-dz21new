@@ -14,24 +14,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $posts=\App\Post::latest()
+                    ->paginate(5);
+    return view('index', ['params' => $posts]);
 })->name('index.blog');
 
 Route::get('/category-{category?}', function(\App\Category $category){
     $posts=\App\Post::where('category_id', $category->id)
                     ->latest()
                     ->paginate(5);
-    return view('pages.archive_blog', ['parametr' => $posts]);
+    return view('pages.archive_blog', ['params' => $posts]);
 })->name('category.blog');
 
 Route::get('/archive-blog', function(){
     $posts=\App\Post::latest()
                     ->paginate(5);
-    return view('pages.archive_blog', ['parametr' => $posts]);
+    return view('pages.archive_blog', ['params' => $posts]);
 })->name('archive-blog.blog');
 
 Route::get('singl-post-{id?}', function(\App\Post $id){
-        // //Вариант 1. Счетчик просмотров поста, с методом save()
+    // //Вариант 1. Счетчик просмотров поста, с методом save()
     // $id->saw+=1;
     // $id->save();
     // //Вариант 2. Счетчик просмотров поста, с методом increment() (без метода save())
