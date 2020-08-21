@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('blog')
-@parent
+{{-- @parent --}}
     <!-- ##### Hero Area Start ##### -->
     <section class="hero-area">
         <div class="hero-post-slides owl-carousel">
@@ -9,7 +9,7 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url(img/blog-img/2.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(/img/blog-img/2.jpg);"></div>
                 <!-- Post Content -->
                 <div class="hero-slides-content">
                     <p>MAY 8, 2018 / 35 Comments</p>
@@ -22,7 +22,7 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url(img/blog-img/3.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(/img/blog-img/3.jpg);"></div>
                 <!-- Post Content -->
                 <div class="hero-slides-content">
                     <p>MAY 8, 2018 / Foody</p>
@@ -35,7 +35,7 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url(img/blog-img/4.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(/img/blog-img/4.jpg);"></div>
                 <!-- Post Content -->
                 <div class="hero-slides-content">
                     <p>aug 8, 2018 / health</p>
@@ -48,7 +48,7 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url(img/blog-img/5.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(/img/blog-img/5.jpg);"></div>
                 <!-- Post Content -->
                 <div class="hero-slides-content">
                     <p>MAY 8, 2018 / drinks</p>
@@ -61,7 +61,7 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url(img/blog-img/6.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(/img/blog-img/6.jpg);"></div>
                 <!-- Post Content -->
                 <div class="hero-slides-content">
                     <p>MAY 8, 2018 / foody</p>
@@ -74,7 +74,7 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url(img/blog-img/2.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(/img/blog-img/2.jpg);"></div>
                 <!-- Post Content -->
                 <div class="hero-slides-content">
                     <p>MAY 8, 2018 / 35 Comments</p>
@@ -87,7 +87,7 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url(img/blog-img/3.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(/img/blog-img/3.jpg);"></div>
                 <!-- Post Content -->
                 <div class="hero-slides-content">
                     <p>MAY 8, 2018 / Foody</p>
@@ -100,7 +100,7 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url(img/blog-img/4.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(/img/blog-img/4.jpg);"></div>
                 <!-- Post Content -->
                 <div class="hero-slides-content">
                     <p>aug 8, 2018 / health</p>
@@ -113,7 +113,7 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url(img/blog-img/5.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(/img/blog-img/5.jpg);"></div>
                 <!-- Post Content -->
                 <div class="hero-slides-content">
                     <p>MAY 8, 2018 / drinks</p>
@@ -126,7 +126,7 @@
             <!-- Single Hero Post -->
             <div class="single-hero-post">
                 <!-- Post Image -->
-                <div class="slide-img bg-img" style="background-image: url(img/blog-img/6.jpg);"></div>
+                <div class="slide-img bg-img" style="background-image: url(/img/blog-img/6.jpg);"></div>
                 <!-- Post Content -->
                 <div class="hero-slides-content">
                     <p>MAY 8, 2018 / foody</p>
@@ -151,7 +151,7 @@
 
                             <div class="carousel-inner">
 
-                                <div class="carousel-item active bg-img" style="background-image: url(img/blog-img/7.jpg)">
+                                <div class="carousel-item active bg-img" style="background-image: url(/img/blog-img/7.jpg)">
                                     <!-- Featured Post Content -->
                                     <div class="featured-post-content">
                                         <p>MAY 8, 2018 / foody</p>
@@ -161,7 +161,7 @@
                                     </div>
                                 </div>
 
-                                <div class="carousel-item bg-img" style="background-image: url(img/blog-img/6.jpg)">
+                                <div class="carousel-item bg-img" style="background-image: url(/img/blog-img/6.jpg)">
                                     <!-- Featured Post Content -->
                                     <div class="featured-post-content">
                                         <p>MAY 8, 2018 / foody</p>
@@ -171,7 +171,7 @@
                                     </div>
                                 </div>
 
-                                <div class="carousel-item bg-img" style="background-image: url(img/blog-img/2.jpg)">
+                                <div class="carousel-item bg-img" style="background-image: url(/img/blog-img/2.jpg)">
                                     <!-- Featured Post Content -->
                                     <div class="featured-post-content">
                                         <p>MAY 8, 2018 / foody</p>
@@ -181,7 +181,7 @@
                                     </div>
                                 </div>
 
-                                <div class="carousel-item bg-img" style="background-image: url(img/blog-img/3.jpg)">
+                                <div class="carousel-item bg-img" style="background-image: url(/img/blog-img/3.jpg)">
                                     <!-- Featured Post Content -->
                                     <div class="featured-post-content">
                                         <p>MAY 8, 2018 / foody</p>
@@ -191,7 +191,7 @@
                                     </div>
                                 </div>
 
-                                <div class="carousel-item bg-img" style="background-image: url(img/blog-img/5.jpg)">
+                                <div class="carousel-item bg-img" style="background-image: url(/img/blog-img/5.jpg)">
                                     <!-- Featured Post Content -->
                                     <div class="featured-post-content">
                                         <p>MAY 8, 2018 / foody</p>
@@ -247,17 +247,17 @@
                     <div class="blog-posts-area">
 
                     <!-- Single Hero Post -->
-                    @include('layouts.post')
+@include('layouts.post')
 
                     </div>
 
                     <!-- Pager -->
-                    {{ $params->links('layouts.paginate', ['params'=>$params]) }}
+{{ $params->links('layouts.paginate', ['params'=>$params]) }}
 
                 </div>
 
                 <!-- Blog Sidebar Area -->
-                {{-- <div class="col-12 col-sm-9 col-md-6 col-lg-4">
+                <div class="col-12 col-sm-9 col-md-6 col-lg-4">
                     <div class="post-sidebar-area">
 
                         <!-- ##### Single Widget Area ##### -->
@@ -268,11 +268,11 @@
                             </div>
                             <!-- Thumbnail -->
                             <div class="about-thumbnail">
-                                <img src="img/blog-img/about-me.jpg" alt="">
+                                <img src="/img/blog-img/about-me.jpg" alt="">
                             </div>
                             <!-- Content -->
                             <div class="widget-content text-center">
-                                <img src="img/core-img/signature.png" alt="">
+                                <img src="/img/core-img/signature.png" alt="">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
                             </div>
                         </div>
@@ -305,7 +305,7 @@
                             <!-- Single Latest Posts -->
                             <div class="single-latest-post d-flex">
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/lp1.jpg" alt="">
+                                    <img src="/img/blog-img/lp1.jpg" alt="">
                                 </div>
                                 <div class="post-content">
                                     <a href="#" class="post-title">
@@ -318,7 +318,7 @@
                             <!-- Single Latest Posts -->
                             <div class="single-latest-post d-flex">
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/lp2.jpg" alt="">
+                                    <img src="/img/blog-img/lp2.jpg" alt="">
                                 </div>
                                 <div class="post-content">
                                     <a href="#" class="post-title">
@@ -331,7 +331,7 @@
                             <!-- Single Latest Posts -->
                             <div class="single-latest-post d-flex">
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/lp3.jpg" alt="">
+                                    <img src="/img/blog-img/lp3.jpg" alt="">
                                 </div>
                                 <div class="post-content">
                                     <a href="#" class="post-title">
@@ -344,7 +344,7 @@
                             <!-- Single Latest Posts -->
                             <div class="single-latest-post d-flex">
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/lp4.jpg" alt="">
+                                    <img src="/img/blog-img/lp4.jpg" alt="">
                                 </div>
                                 <div class="post-content">
                                     <a href="#" class="post-title">
@@ -357,7 +357,7 @@
                             <!-- Single Latest Posts -->
                             <div class="single-latest-post d-flex">
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/lp5.jpg" alt="">
+                                    <img src="/img/blog-img/lp5.jpg" alt="">
                                 </div>
                                 <div class="post-content">
                                     <a href="#" class="post-title">
@@ -372,7 +372,7 @@
                         <!-- ##### Single Widget Area ##### -->
                         <div class="single-widget-area">
                             <!-- Adds -->
-                            <a href="#"><img src="img/blog-img/add.png" alt=""></a>
+                            <a href="#"><img src="/img/blog-img/add.png" alt=""></a>
                         </div>
 
                         <!-- ##### Single Widget Area ##### -->
@@ -412,7 +412,7 @@
                         </div>
 
                     </div>
-                </div> --}}
+                </div>
 
             </div>
         </div>

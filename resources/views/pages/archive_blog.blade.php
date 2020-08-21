@@ -1,12 +1,17 @@
 @extends('layouts.layout')
 
+{{-- @push('style')
+    <link href="{{ asset('http://hillel-25new/style.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('http://hillel-25new/js/active.js') }}" rel="script">
+@endpush --}}
+
 @section('blog')
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <img src="img/core-img/breadcrumb-line.png" alt="">
+                    <img src="/img/core-img/breadcrumb-line.png" alt="">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
@@ -29,7 +34,7 @@
 
                         <!-- Featured Post Area -->
                         <div class="featured-posts">
-                            <a href="#"><img src="img/blog-img/1.jpg" alt=""></a>
+                            <a href="#"><img src="/img/blog-img/1.jpg" alt=""></a>
                             <!-- Featured Post Content -->
                             <div class="featured-post-content">
                                 <p>MAY 8, 2018 / foody</p>
@@ -40,12 +45,12 @@
                         </div>
 
                     <!-- Single Blog Post -->
-                    @include('layouts.post')
+@include('layouts.post')
 
                     </div>
 
                     <!-- Pager -->
-                    {{ $params->links('layouts.paginate', ['params'=>$params]) }}
+{{ $params->links('layouts.paginate', ['params'=>$params]) }}
                     
                 </div>
 
@@ -69,11 +74,11 @@
                             </div>
                             <!-- Thumbnail -->
                             <div class="about-thumbnail">
-                                <img src="img/blog-img/about-me.jpg" alt="">
+                                <img src="/img/blog-img/about-me.jpg" alt="">
                             </div>
                             <!-- Content -->
                             <div class="widget-content text-center">
-                                <img src="img/core-img/signature.png" alt="">
+                                <img src="/img/core-img/signature.png" alt="">
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
                             </div>
                         </div>
@@ -102,7 +107,7 @@
                             <!-- Single Latest Posts -->
                             <div class="single-latest-post d-flex">
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/lp1.jpg" alt="">
+                                    <img src="/img/blog-img/lp1.jpg" alt="">
                                 </div>
                                 <div class="post-content">
                                     <a href="#" class="post-title">
@@ -115,7 +120,7 @@
                             <!-- Single Latest Posts -->
                             <div class="single-latest-post d-flex">
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/lp2.jpg" alt="">
+                                    <img src="/img/blog-img/lp2.jpg" alt="">
                                 </div>
                                 <div class="post-content">
                                     <a href="#" class="post-title">
@@ -128,7 +133,7 @@
                             <!-- Single Latest Posts -->
                             <div class="single-latest-post d-flex">
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/lp3.jpg" alt="">
+                                    <img src="/img/blog-img/lp3.jpg" alt="">
                                 </div>
                                 <div class="post-content">
                                     <a href="#" class="post-title">
@@ -141,7 +146,7 @@
                             <!-- Single Latest Posts -->
                             <div class="single-latest-post d-flex">
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/lp4.jpg" alt="">
+                                    <img src="/img/blog-img/lp4.jpg" alt="">
                                 </div>
                                 <div class="post-content">
                                     <a href="#" class="post-title">
@@ -154,7 +159,7 @@
                             <!-- Single Latest Posts -->
                             <div class="single-latest-post d-flex">
                                 <div class="post-thumb">
-                                    <img src="img/blog-img/lp5.jpg" alt="">
+                                    <img src="/img/blog-img/lp5.jpg" alt="">
                                 </div>
                                 <div class="post-content">
                                     <a href="#" class="post-title">
@@ -169,7 +174,7 @@
                         <!-- ##### Single Widget Area ##### -->
                         <div class="single-widget-area">
                             <!-- Adds -->
-                            <a href="#"><img src="img/blog-img/add.png" alt=""></a>
+                            <a href="#"><img src="/img/blog-img/add.png" alt=""></a>
                         </div>
 
                         <!-- ##### Single Widget Area ##### -->

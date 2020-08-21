@@ -13,22 +13,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //
-Route::get('/layout',function(){
+Route::get('/layout', function(){
     return view('layouts.layout');
 });
-//
+/*
+|---------------------------------------------------------------------------
+*/
 Route::get('/', function () {
     $posts=\App\Post::latest()
                     ->paginate(5);
     return view('index', ['params' => $posts]);
 })->name('index.blog');
 
-Route::get('/category-{category?}', function(\App\Category $category){
-    $posts=\App\Post::where('category_id', $category->id)
+Route::get('category/{slug?}', function($slug=null){
+    $category=\App\Category::where('slug', $slug)
+                            ->first();
+    $posts=$category->post()
                     ->latest()
                     ->paginate(5);
     return view('pages.archive_blog', ['params' => $posts]);
 })->name('category.blog');
+
+// Route::get('/category/{category?}', function(\App\Category $category){
+//     $posts=\App\Post::where('category_id', $category->id)
+//                     ->latest()
+//                     ->paginate(5);
+//     return view('pages.archive_blog', ['params' => $posts]);
+// })->name('category.blog');
 
 Route::get('/archive-blog', function(){
     $posts=\App\Post::latest()

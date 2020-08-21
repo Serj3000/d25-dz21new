@@ -32,7 +32,7 @@
                         <!-- Post Details Area -->
                         <div class="single-post-details-area">
                             <div class="post-thumbnail mb-30">
-                                <img src="img/blog-img/{{$post->image}}.jpg" alt="">
+                                <img src="../img/blog-img/{{$post->image}}.jpg" alt="">
                             </div>
                             <div class="post-content">
                                 <p class="post-date">{{date('M d, Y', strtotime($post->created_at))}} / {{$post->category->name}}</p>

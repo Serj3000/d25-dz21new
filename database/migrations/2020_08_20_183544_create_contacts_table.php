@@ -21,6 +21,7 @@ class CreateContactsTable extends Migration
             $table->string('phone',100);
             $table->string('fax',100);
             $table->string('email',100);
+            $table->text('contact_map');
             $table->timestamps();
         });
     }
