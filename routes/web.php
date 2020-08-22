@@ -25,7 +25,7 @@ Route::get('/', function () {
     return view('index', ['params' => $posts]);
 })->name('index.blog');
 
-Route::get('category/{slug?}', function($slug=null){
+Route::get('/category/{slug?}', function($slug=null){
     $category=\App\Category::where('slug', $slug)
                             ->first();
     $posts=$category->post()
@@ -47,7 +47,7 @@ Route::get('/archive-blog', function(){
     return view('pages.archive_blog', ['params' => $posts]);
 })->name('archive-blog.blog');
 
-Route::get('singl-post-{id?}', function(\App\Post $id){
+Route::get('/singl-post-{id?}', function(\App\Post $id){
     // //Вариант 1. Счетчик просмотров поста, с методом save()
     // $id->saw+=1;
     // $id->save();
@@ -73,7 +73,7 @@ Route::get('/laravel', function () {
     return view('pages.welcome');
 })->name('laravel.blog');
 
-Route::get('/tag-{tag?}', function(\App\Tag $tag){
+Route::get('/tag/{tag?}', function(\App\Tag $tag){
     // $tagPostId=$tag->post->toArray();
     //     foreach($tagPostId as $postTag){
     //         $postId[]=$postTag['id'];
@@ -92,8 +92,18 @@ Route::get('/tag-{tag?}', function(\App\Tag $tag){
         // $numIdPost=\App\Post::max('id');
         // $tagpost=\App\Post::find($numIdPost);
         // $tagpost->tag()->attach($request->input('post-tag'));
-
 })->name('tag.blog');
+
+Route::get('/author/{user?}', function(\App\User $user){
+    $posts=$user->post()
+                ->latest()
+                ->paginate(5);
+    return view('pages.archive_blog', ['params' => $posts]);
+})->name('author.blog');
+
+Route::get('/sidebar', function() {
+    return view('sidebars.sidebar_index');
+});
 
 Route::fallback(function() {
     $posts=\App\Post::latest('created_at')

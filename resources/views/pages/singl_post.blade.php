@@ -1,7 +1,6 @@
 @extends('layouts.layout')
 
 @section('blog')
-
     <!-- ##### Breadcrumb Area Start ##### -->
     <div class="breadcrumb-area">
         <div class="container">
@@ -38,7 +37,7 @@
                                 <p class="post-date">{{date('M d, Y', strtotime($post->created_at))}} / {{$post->category->name}}</p>
                                 <h4 class="post-title">{{$post->title}}</h4>
                                 <div class="post-meta">
-                                    <a href="#"><span>by</span> {{$post->user->name}}</a>
+                                    <a href="{{route('author.blog', ['user'=>$post->user->id])}}"><span>by</span> {{$post->user->name}}</a>
                                     <a href="#"><i class="fa fa-eye"></i> {{$post->saw}}</a>
                                     <a href="#"><i class="fa fa-comments"></i> 08</a>
                                 </div>
@@ -239,116 +238,20 @@
                     <div class="post-sidebar-area">
 
                         <!-- ##### Single Widget Area ##### -->
-                        <div class="single-widget-area mt-0">
-                            <!-- Title -->
-                            <div class="widget-title">
-                                <h6>Categories</h6>
-                            </div>
-                            <ol class="foode-catagories">
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> Drink</span> <span>(18)</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> Foody</span> <span>(28)</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> Tea</span> <span>(15)</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> Coffee</span> <span>(27)</span></a></li>
-                            </ol>
-                        </div>
+                        <!--Categories-->
+                            @include('sidebars.widget_category')
 
                         <!-- ##### Single Widget Area ##### -->
-                        <div class="single-widget-area">
-                            <!-- Title -->
-                            <div class="widget-title">
-                                <h6>Latest Posts</h6>
-                            </div>
-
-                            <!-- Single Latest Posts -->
-                            <div class="single-latest-post d-flex">
-                                <div class="post-thumb">
-                                    <img src="/img/blog-img/lp1.jpg" alt="">
-                                </div>
-                                <div class="post-content">
-                                    <a href="#" class="post-title">
-                                        <h6>Weeknight Ponzu Pasta</h6>
-                                    </a>
-                                    <a href="#" class="post-author"><span>by</span> Erin Alderson</a>
-                                </div>
-                            </div>
-
-                            <!-- Single Latest Posts -->
-                            <div class="single-latest-post d-flex">
-                                <div class="post-thumb">
-                                    <img src="/img/blog-img/lp2.jpg" alt="">
-                                </div>
-                                <div class="post-content">
-                                    <a href="#" class="post-title">
-                                        <h6>The Most Popular Recipe Last Month</h6>
-                                    </a>
-                                    <a href="#" class="post-author"><span>by</span> Erin Alderson</a>
-                                </div>
-                            </div>
-
-                            <!-- Single Latest Posts -->
-                            <div class="single-latest-post d-flex">
-                                <div class="post-thumb">
-                                    <img src="/img/blog-img/lp3.jpg" alt="">
-                                </div>
-                                <div class="post-content">
-                                    <a href="#" class="post-title">
-                                        <h6>A Really Good Chana Masala</h6>
-                                    </a>
-                                    <a href="#" class="post-author"><span>by</span> Erin Alderson</a>
-                                </div>
-                            </div>
-
-                            <!-- Single Latest Posts -->
-                            <div class="single-latest-post d-flex">
-                                <div class="post-thumb">
-                                    <img src="/img/blog-img/lp4.jpg" alt="">
-                                </div>
-                                <div class="post-content">
-                                    <a href="#" class="post-title">
-                                        <h6>Spicy Instant Pot Taco Soup</h6>
-                                    </a>
-                                    <a href="#" class="post-author"><span>by</span> Erin Alderson</a>
-                                </div>
-                            </div>
-
-                            <!-- Single Latest Posts -->
-                            <div class="single-latest-post d-flex">
-                                <div class="post-thumb">
-                                    <img src="/img/blog-img/lp5.jpg" alt="">
-                                </div>
-                                <div class="post-content">
-                                    <a href="#" class="post-title">
-                                        <h6>Lime Leaf Miso Soup</h6>
-                                    </a>
-                                    <a href="#" class="post-author"><span>by</span> Erin Alderson</a>
-                                </div>
-                            </div>
-
-                        </div>
+                        <!--Latest Posts-->
+                            @include('sidebars.widget_latestpost')
 
                         <!-- ##### Single Widget Area ##### -->
-                        <div class="single-widget-area">
-                            <!-- Adds -->
-                            <a href="#"><img src="/img/blog-img/add.png" alt=""></a>
-                        </div>
+                            <!--Archives-->
+                            @include('sidebars.widget_archivepost')
 
                         <!-- ##### Single Widget Area ##### -->
-                        <div class="single-widget-area">
-                            <!-- Title -->
-                            <div class="widget-title">
-                                <h6>Archives</h6>
-                            </div>
-                            <ol class="foode-archives">
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> January 2018</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> February 2018</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> March 2018</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> April 2018</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> May 2018</span></a></li>
-                            </ol>
-                        </div>
-
-                        <!-- ##### Single Widget Area ##### -->
-@include('layouts.tag')
+                        <!--Tags-->
+                            @include('layouts.tag')
                         {{-- <div class="single-widget-area">
                             <!-- Title -->
                             <div class="widget-title">
@@ -374,5 +277,4 @@
         </div>
     </section>
     <!-- ##### Blog Content Area End ##### -->
-
 @endsection

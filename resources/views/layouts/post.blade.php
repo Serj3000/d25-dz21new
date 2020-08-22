@@ -11,7 +11,7 @@
                                         <h4>{{$post->title}}</h4>
                                     </a>
                                     <div class="post-meta">
-                                        <a href="#"><span>by</span> {{$post->user->name}}</a>
+                                        <a href="{{route('author.blog', ['user'=>$post->user->id])}}"><span>by</span> {{$post->user->name}}</a>
                                         <a href="#"><i class="fa fa-eye"></i> {{$post->saw}}</a>
                                         <a href="#"><i class="fa fa-comments"></i> 08</a>
                                     </div>
