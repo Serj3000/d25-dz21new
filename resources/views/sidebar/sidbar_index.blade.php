@@ -1,70 +1,6 @@
-@extends('layouts.layout')
-
-{{-- @push('style')
-    <link href="{{ asset('http://hillel-25new/style.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('http://hillel-25new/js/active.js') }}" rel="script">
-@endpush --}}
-
-@section('blog')
-    <!-- ##### Breadcrumb Area Start ##### -->
-    <div class="breadcrumb-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <img src="/img/core-img/breadcrumb-line.png" alt="">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Blog Archive</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ##### Breadcrumb Area End ##### -->
-
-    <!-- ##### Blog Content Area Start ##### -->
-    <section class="blog-content-area section-padding-0-100">
-        <div class="container">
-            <div class="row justify-content-center">
-                <!-- Blog Posts Area -->
-                <div class="col-12 col-lg-8">
-                    <div class="blog-posts-area">
-
-                        <!-- Featured Post Area -->
-                        <div class="featured-posts">
-                            <a href="#"><img src="/img/blog-img/1.jpg" alt=""></a>
-                            <!-- Featured Post Content -->
-                            <div class="featured-post-content">
-                                <p>MAY 8, 2018 / foody</p>
-                                <a href="#" class="post-title">
-                                    <h2>Quick Vegan Enchiladas with Sweet Potato Sauce</h2>
-                                </a>
-                            </div>
-                        </div>
-
-                    <!-- Single Blog Post -->
-@include('layouts.post')
-
-                    </div>
-
-                    <!-- Pager -->
-{{ $params->links('layouts.paginate', ['params'=>$params]) }}
-                    
-                </div>
-
                 <!-- Blog Sidebar Area -->
                 <div class="col-12 col-sm-9 col-md-6 col-lg-4">
                     <div class="post-sidebar-area">
-
-                        <!-- ##### Single Widget Area ##### -->
-                        <div class="single-widget-area mt-0">
-                            <form class="search-form" action="#" method="post">
-                                <input type="search" name="search" class="form-control" placeholder="Search...">
-                                <button><i class="fa fa-send"></i></button>
-                            </form>
-                        </div>
 
                         <!-- ##### Single Widget Area ##### -->
                         <div class="single-widget-area">
@@ -87,14 +23,18 @@
                         <div class="single-widget-area">
                             <!-- Title -->
                             <div class="widget-title">
-                                <h6>Categories</h6>
+                                <h6>Subscribe &amp; Follow</h6>
                             </div>
-                            <ol class="foode-catagories">
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> Drink</span> <span>(18)</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> Foody</span> <span>(28)</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> Tea</span> <span>(15)</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> Coffee</span> <span>(27)</span></a></li>
-                            </ol>
+                            <!-- Widget Social Info -->
+                            <div class="widget-social-info text-center">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                                <a href="#"><i class="fa fa-pinterest"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-rss"></i></a>
+                            </div>
                         </div>
 
                         <!-- ##### Single Widget Area ##### -->
@@ -178,45 +118,12 @@
                         </div>
 
                         <!-- ##### Single Widget Area ##### -->
-                        <div class="single-widget-area">
-                            <!-- Title -->
-                            <div class="widget-title">
-                                <h6>Archives</h6>
-                            </div>
-                            <ol class="foode-archives">
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> January 2018</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> February 2018</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> March 2018</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> April 2018</span></a></li>
-                                <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> May 2018</span></a></li>
-                            </ol>
-                        </div>
+                            <!-- Newsletter -->
+                            
 
                         <!-- ##### Single Widget Area ##### -->
-@include('layouts.tag')
-                        {{-- <div class="single-widget-area">
-                            <!-- Title -->
-                            <div class="widget-title">
-                                <h6>popular tags</h6>
-                            </div>
                             <!-- Tags -->
-                            <ol class="popular-tags d-flex flex-wrap">
-                                <li><a href="#">Creative</a></li>
-                                <li><a href="#">Unique</a></li>
-                                <li><a href="#">Template</a></li>
-                                <li><a href="#">Photography</a></li>
-                                <li><a href="#">travel</a></li>
-                                <li><a href="#">lifestyle</a></li>
-                                <li><a href="#">Wordpress Template</a></li>
-                                <li><a href="#">food</a></li>
-                                <li><a href="#">Idea</a></li>
-                            </ol>
-                        </div> --}}
+                            @include('sidebar.widget_tag')
 
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Blog Content Area End ##### -->
-@endsection

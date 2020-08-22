@@ -84,7 +84,7 @@
                 <div class="row">
                     <div class="col-12">
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="/img/core-img/logo.png" alt=""></a>
+                        <a href="{{route('index.blog')}}" class="nav-brand"><img src="/img/core-img/logo.png" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                     <nav class="classy-navbar" id="foodeNav">
 
                         <!-- Nav brand -->
-                        <a href="index.html" class="nav-brand"><img src="/img/core-img/logo.png" alt=""></a>
+                        <a href="{{route('index.blog')}}" class="nav-brand"><img src="/img/core-img/logo.png" alt=""></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">

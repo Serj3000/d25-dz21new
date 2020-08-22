@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PostSeeder::class);
         $this->call(ContactSeeder::class);
         $this->call(TouchSeeder::class);
+        $this->call(TagSeeder::class);
     }
 }

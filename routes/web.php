@@ -65,6 +65,38 @@ Route::get('/contact', function(){
     return view('pages.contact', ['contact'=>$contact]);
 })->name('contact.blog');
 
+Route::get('/typography', function(){
+    return view('pages.typography');
+})->name('typography.blog');
+
 Route::get('/laravel', function () {
     return view('pages.welcome');
 })->name('laravel.blog');
+
+Route::get('/tag-{tag?}', function(\App\Tag $tag){
+    // $tagPostId=$tag->post->toArray();
+    //     foreach($tagPostId as $postTag){
+    //         $postId[]=$postTag['id'];
+    //     }
+    // $posts=\App\Post::whereIn('id', $postId)
+    //                 ->latest()
+    //                 ->paginate(5);
+    // dd($tagPostId, $posts, $post);
+
+    $posts=$tag->post()
+            ->latest()
+            ->paginate(5);
+    return view('pages.archive_blog', ['params' => $posts]);
+
+        // // //---------attach()------------
+        // $numIdPost=\App\Post::max('id');
+        // $tagpost=\App\Post::find($numIdPost);
+        // $tagpost->tag()->attach($request->input('post-tag'));
+
+})->name('tag.blog');
+
+Route::fallback(function() {
+    $posts=\App\Post::latest('created_at')
+                    ->paginate(5);
+    return view('index', ['params'=>$posts]);
+});
