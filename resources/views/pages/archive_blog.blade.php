@@ -84,7 +84,8 @@
 
                         <!-- ##### Single Widget Area ##### -->
                         <!--Tags-->
-                            @include('layouts.tag')
+                            {{-- @include('layouts.tag') --}}
+                            @include('sidebars.widget_tag')
                         {{-- <div class="single-widget-area">
                             <!-- Title -->
                             <div class="widget-title">

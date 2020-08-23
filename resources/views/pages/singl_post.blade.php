@@ -67,6 +67,7 @@
                                 @foreach($post->tag as $tag)
                                     <li><a href="{{route('tag.blog', ['tag'=>$tag->id])}}">{{$tag->name}}</a></li>
                                 @endforeach
+
                             </ol>
 
                             <!-- Share -->
@@ -251,7 +252,8 @@
 
                         <!-- ##### Single Widget Area ##### -->
                         <!--Tags-->
-                            @include('layouts.tag')
+                            {{-- @include('layouts.tag') --}}
+                            @include('sidebars.widget_tag')
                         {{-- <div class="single-widget-area">
                             <!-- Title -->
                             <div class="widget-title">

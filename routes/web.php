@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/layout', function(){
     return view('layouts.layout');
 });
+Route::get('/sidebar', function() {
+    return view('sidebars.sidebar_index');
+});
 /*
 |---------------------------------------------------------------------------
 */
@@ -25,36 +28,15 @@ Route::get('/', function () {
     return view('index', ['params' => $posts]);
 })->name('index.blog');
 
-Route::get('/category/{slug?}', function($slug=null){
-    $category=\App\Category::where('slug', $slug)
-                            ->first();
-    $posts=$category->post()
-                    ->latest()
-                    ->paginate(5);
-    return view('pages.archive_blog', ['params' => $posts]);
-})->name('category.blog');
+Route::get('/category/{slug?}', 'ArchiveController@category')->name('category.blog');
 
-// Route::get('/category/{category?}', function(\App\Category $category){
-//     $posts=\App\Post::where('category_id', $category->id)
-//                     ->latest()
-//                     ->paginate(5);
-//     return view('pages.archive_blog', ['params' => $posts]);
-// })->name('category.blog');
+Route::get('/archive-blog', 'ArchiveController@archive')->name('archive-blog.blog');
 
-Route::get('/archive-blog', function(){
-    $posts=\App\Post::latest()
-                    ->paginate(5);
-    return view('pages.archive_blog', ['params' => $posts]);
-})->name('archive-blog.blog');
+Route::get('/singl-post-{id?}', 'PostController@singl_post')->name('singl-post.blog');
 
-Route::get('/singl-post-{id?}', function(\App\Post $id){
-    // //Вариант 1. Счетчик просмотров поста, с методом save()
-    // $id->saw+=1;
-    // $id->save();
-    // //Вариант 2. Счетчик просмотров поста, с методом increment() (без метода save())
-    $id->increment('saw');
-    return view('pages.singl_post', ['post'=>$id]);
-})->name('singl-post.blog');
+Route::get('/tag/{tag?}', 'ArchiveController@tag')->name('tag.blog');
+
+Route::get('/author/{user?}', 'UserController@author')->name('author.blog');
 
 Route::get('/about-us', function(){
     return view('pages.about_us');
@@ -72,38 +54,6 @@ Route::get('/typography', function(){
 Route::get('/laravel', function () {
     return view('pages.welcome');
 })->name('laravel.blog');
-
-Route::get('/tag/{tag?}', function(\App\Tag $tag){
-    // $tagPostId=$tag->post->toArray();
-    //     foreach($tagPostId as $postTag){
-    //         $postId[]=$postTag['id'];
-    //     }
-    // $posts=\App\Post::whereIn('id', $postId)
-    //                 ->latest()
-    //                 ->paginate(5);
-    // dd($tagPostId, $posts, $post);
-
-    $posts=$tag->post()
-            ->latest()
-            ->paginate(5);
-    return view('pages.archive_blog', ['params' => $posts]);
-
-        // // //---------attach()------------
-        // $numIdPost=\App\Post::max('id');
-        // $tagpost=\App\Post::find($numIdPost);
-        // $tagpost->tag()->attach($request->input('post-tag'));
-})->name('tag.blog');
-
-Route::get('/author/{user?}', function(\App\User $user){
-    $posts=$user->post()
-                ->latest()
-                ->paginate(5);
-    return view('pages.archive_blog', ['params' => $posts]);
-})->name('author.blog');
-
-Route::get('/sidebar', function() {
-    return view('sidebars.sidebar_index');
-});
 
 Route::fallback(function() {
     $posts=\App\Post::latest('created_at')

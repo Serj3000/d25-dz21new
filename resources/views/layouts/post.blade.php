@@ -16,9 +16,10 @@
                                         <a href="#"><i class="fa fa-comments"></i> 08</a>
                                     </div>
                                     <p class="post-excerpt">{{$post->preview_text}}</p>
+                                    {{-- <a href="{{route('singl-post.blog', ['id'=>$post->id])}}" class="read-more-btn">Continue Reading <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a> --}}
                                     <a href="{{route('singl-post.blog', ['id'=>$post->id])}}" class="read-more-btn">Continue Reading <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                                 <!-- Post Curve Line -->
                                 <img class="post-curve-line" src="/img/core-img/post-curve-line.png" alt="no page">
-                            </div>
+                            </div>   
                         @endforeach
