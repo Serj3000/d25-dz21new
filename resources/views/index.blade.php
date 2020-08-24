@@ -27,7 +27,9 @@
                 </div>
 
                 <!-- Blog Sidebar Area -->
-                @include('sidebars.sidebar_index')
+                    @include('sidebars.sidebar_index')
+
+
 
             </div>
         </div>

@@ -4,27 +4,27 @@
 
                         <!-- ##### Single Widget Area ##### -->
                             <!-- Widget About Me -->
-                            @include('sidebars.widget_aboutme')
+                            @include('widgets.widget_aboutme')
 
                         <!-- ##### Single Widget Area ##### -->
                             <!-- Widget Social Info -->
-                            @include('sidebars.widget_socialinfo')
+                            @include('widgets.widget_socialinfo')
 
                         <!-- ##### Single Widget Area ##### -->
                             <!-- Single Latest Posts -->
-                            @include('sidebars.widget_latestpost')
+                            @include('widgets.widget_latestpost')
 
                         <!-- ##### Single Widget Area ##### -->
                             <!-- Adds -->
-                            @include('sidebars.widget_add')
+                            @include('widgets.widget_add')
 
                         <!-- ##### Single Widget Area ##### -->
                             <!-- Newsletter -->
-                            @include('sidebars.widget_newsletter')
+                            @include('widgets.widget_newsletter')
 
                         <!-- ##### Single Widget Area ##### -->
                             <!-- Tags -->
-                            @include('sidebars.widget_tag')
+                            @include('widgets.widget_tag')
 
                     </div>
                 </div>

@@ -2,7 +2,7 @@
                         <div class="single-widget-area">
                             <!-- Title -->
                             <div class="widget-title">
-                                <h6>popular tags</h6>
+                                <h6>Popular tags</h6>
                             </div>
                             <!-- Tags -->
                             <ol class="popular-tags d-flex flex-wrap">

@@ -11,7 +11,7 @@ $factory->define(Post::class, function (Faker $faker) {
         'user_id' => rand(1,2), //numberBetween($min = 1000, $max = 9000) // 8567
         'category_id' => rand(1,9),
         'title' => $faker -> sentence($nbWords = 6, $variableNbWords = true),
-        'image' => rand(1,9),
+        'image' => rand(1,5),
         'preview_text' => $faker -> paragraph($nbSentences = 3, $variableNbSentences = true),
         'body' => $faker -> text($maxNbChars = 800),
         'created_at' => $faker -> iso8601($max = 'now'),

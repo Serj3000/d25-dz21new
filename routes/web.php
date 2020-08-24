@@ -55,6 +55,36 @@ Route::get('/laravel', function () {
     return view('pages.welcome');
 })->name('laravel.blog');
 
+Route::get('/item-arch-post/{year?}/{month?}', function($year=null, $month=null){
+    $items=\App\Post::all();//get('updated_at');
+
+
+    foreach($items as $item){
+        $darrg[]=['post_date'=>date("Y", strtotime($item->updated_at)),'post_id'=>$item->id];
+        // echo '<br>'.$item->updated_at;
+        //echo '<br>'.date("F Y", strtotime($item->updated_at)).'<br><br><br>';
+
+        $darr[]=date("Y", strtotime($item->updated_at));
+    }
+        echo '<br><pre>';
+        // sort($darrg, SORT_NATURAL | SORT_FLAG_CASE);
+        sort($darrg);
+        $rev=array_reverse($darrg);
+
+        $count=array_count_values($darr);
+        print_r($count);
+        print_r($count[2020]);
+
+        //$last = array_column($rev, 'post_id', 'post_date');
+        //print_r($last);
+
+        echo '<br></pre>';
+
+    //dd(sort($darrg, SORT_NATURAL | SORT_FLAG_CASE));
+    exit;
+    return view('widgets.widgetarchivepost');
+})->name('item-arch-post.blog');
+
 Route::fallback(function() {
     $posts=\App\Post::latest('created_at')
                     ->paginate(5);
