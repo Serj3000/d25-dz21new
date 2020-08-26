@@ -14,4 +14,11 @@
                                 <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> April 2018</span></a></li>
                                 <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> May 2018</span></a></li> --}}
                             </ol>
+    {{$month}} | {{$year}} - ({{$iteam_count}})
+    <br>
+    <pre>
+    @foreach($models as $model)
+    {{$model}}
+    @endforeach
+    </pre>
                         </div>
