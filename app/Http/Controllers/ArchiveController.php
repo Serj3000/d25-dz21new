@@ -24,7 +24,10 @@ class ArchiveController extends Controller
     {
         $posts=\App\Post::latest()
                         ->paginate(5);
-        return view('pages.archive_blog', ['params' => $posts]);
+
+        return view('pages.archive_blog', [
+        'params'=>$posts,
+    ]);
     }
 
     public function tag(\App\Tag $tag)

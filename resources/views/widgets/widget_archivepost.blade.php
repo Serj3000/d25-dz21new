@@ -15,18 +15,20 @@
                                 <li><a href="#"><span><i class="fa fa-stop" aria-hidden="true"></i> May 2018</span></a></li> --}}
                             </ol>
     {{$month ?? '' }} | {{$year ?? ''}} - ({{$iteam_count ?? ''}})
+
     <br>
-    {{dd($params)}}
-    @if(!empty($params))
+    {{dd($archives)}}
+    @if(!empty($archives))
 
-        @foreach($params as $year=>$frog)
-            {{dd($frog)}}
+        @foreach($archives as $year=>$frog)
+            {{-- {{$frog}} --}}
+            <br>
         @endforeach
-        {{dd($frog[0]['crom'])}}
+        {{-- {{dd($frog[0]['crom'])}} --}}
 
 
 
-                                    @foreach($params as $kf=>$fg)
+                                    @foreach($archives as $kf=>$fg)
                                         <br>
                                         {{-- {{dd($fg)}} --}}
                                         @foreach($fg as $sd=>$tr)
@@ -68,4 +70,4 @@
         'month' => $month,
         'iteam_count'=>$iteam_count[$year],
         'iteam_month'=>$iteam_count_month,
-        'params'=>$params,--}}
+        'archives'=>$archives,--}}

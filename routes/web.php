@@ -240,19 +240,22 @@ Route::get('/item-arch-post/{year?}/{month?}', function($year='2020', $month=nul
             ->whereMonth('updated_at', '=', $month)
             ->latest('updated_at') //orderBy('updated_at', 'DESC')
             ->get();
+
         // //Формируем список всех постов в порядке убывания по дате обновления latest('updated_at')
         $items=\App\Post::latest('updated_at')->get();
+
         // //Формируем массивы по: дате $year_arch и месяцу $month_arch для всех постов
         foreach($items as $item){
             // $darrgs[]=['post_year'=>date("Y", strtotime($item->updated_at)), 'post_month'=>date("F", strtotime($item->updated_at)), 'post_id'=>$item->id];
             $year_arch[]=date("Y", strtotime($item->updated_at));
             $month_arch[]=date("F", strtotime($item->updated_at));
         }
+
         // //Подсчитываем количество всех постов в каждой дате с помощью array_count_values()
             $iteam_count=array_count_values($year_arch);
             $iteam_count_month=array_count_values($month_arch);
 
-            // dd($year_arch, $month_arch);
+            dd($year_arch, $month_arch);
 
         // //Сортируем и выводим мясяцы по годам
         foreach($iteam_count as $arr_key=>$arr_value){
@@ -273,7 +276,7 @@ Route::get('/item-arch-post/{year?}/{month?}', function($year='2020', $month=nul
                         // echo '<br>$coun_month= <pre>';
                         // print_r($coun_month);
                         // echo '</pre>';
-                $params[$arr_key][]=['count_year'=>$arr_value, 'crom'=>['post_year'=>date("Y", strtotime($bol->updated_at)), 'post_month'=>$post_month, 'post_id'=>$post_id]];
+                $archives[$arr_key][]=['count_year'=>$arr_value, 'crom'=>['post_year'=>date("Y", strtotime($bol->updated_at)), 'post_month'=>$post_month, 'post_id'=>$post_id]];
         }
                 // if($key_iteam_count==$value_year_arch){
                 //     // //$month_arch[$key_year_arch]!=$arrt
@@ -290,9 +293,82 @@ Route::get('/item-arch-post/{year?}/{month?}', function($year='2020', $month=nul
         'month' => $month,
         'iteam_count'=>$iteam_count[$year],
         'iteam_month'=>$iteam_count_month,
-        'params'=>$params,
+        'archives'=>$archives,
     ]);
 })->name('item-arch-post.blog');
+
+Route::get('/item-arch/{year?}/{month?}', function($year='2020', $month=null){
+    /**
+     * Show the posts of archive.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+        // //Формируем список всех постов в порядке убывания по дате обновления latest('updated_at')
+        $items=\App\Post::latest('updated_at')->get();
+
+        // //Формируем массивы по: дате $year_arch и месяцу $month_arch для всех постов
+        foreach($items as $item){
+            // $darrgs[]=['post_year'=>date("Y", strtotime($item->updated_at)), 'post_month'=>date("F", strtotime($item->updated_at)), 'post_id'=>$item->id];
+            $year_arch[]=date("Y", strtotime($item->updated_at));
+            $month_arch[]=date("F", strtotime($item->updated_at));
+        }
+
+        // //Подсчитываем количество всех постов в каждой дате с помощью array_count_values()
+            $iteam_count=array_count_values($year_arch);
+            $iteam_count_month=array_count_values($month_arch);
+
+            // dd($year_arch, $month_arch);
+
+
+        // //Формируем выборку из БД по критериям: год и месяц, с сортировкой в порядке убывания по дате обновления latest('updated_at')
+        $models = \App\Post::whereYear('updated_at', '=', $year)
+            ->whereMonth('updated_at', '=', $month)
+            ->latest('updated_at') //orderBy('updated_at', 'DESC')
+            ->get();
+
+
+        dd($year_arch, $month_arch, $models);
+
+
+        // //Сортируем и выводим мясяцы по годам
+        foreach($iteam_count as $arr_key=>$arr_value){
+            $num_month=null;
+            $post_month=[];
+            $arr_model =\App\Post::whereYear('updated_at', '=', $arr_key)
+                ->latest('updated_at')
+                ->get();
+                foreach($arr_model as $kom=>$bol){
+                    if(date("F", strtotime($bol->updated_at))!=$num_month){
+                        $num_month=date("F", strtotime($bol->updated_at));
+                        $post_month[]=$num_month;
+                    }else{
+                        $nimb_month[]=array_count_values($post_month);
+                    }
+                $post_id[]=$bol->id;
+                }
+                        // echo '<br>$coun_month= <pre>';
+                        // print_r($coun_month);
+                        // echo '</pre>';
+                $archives[$arr_key][]=['count_year'=>$arr_value, 'crom'=>['post_year'=>date("Y", strtotime($bol->updated_at)), 'post_month'=>$post_month, 'post_id'=>$post_id]];
+        }
+                // if($key_iteam_count==$value_year_arch){
+                //     // //$month_arch[$key_year_arch]!=$arrt
+                //     if($month_arch[$key_year_arch]!=$arrt){
+                //         $arrt=$month_arch[$key_year_arch];
+                //         $iteam_month[$key_iteam_count][$key_year_arch]=$arrt;
+                //     }
+                // }
+
+
+    return view('widgets.widget_archivepost', [
+        'models' => $models,
+        'year' => $year,
+        'month' => $month,
+        'iteam_count'=>$iteam_count[$year],
+        'iteam_month'=>$iteam_count_month,
+        'archives'=>$archives,
+    ]);
+});
 
 Route::fallback(function() {
     $posts=\App\Post::latest('created_at')
