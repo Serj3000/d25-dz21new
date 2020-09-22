@@ -397,15 +397,33 @@ Route::get('/admin/login', function(){
 })->name('admin-login-get.blog');
 
 Route::post('/admin/login', function(\Illuminate\Http\Request $request){
-    $date=$request->validate([
+    $data=$request->validate([
         'email_login'=>'required|email|exists:users,email',
         'password_login'=>'required|min:2|max:25',
     ]);
+    // $credentials = $request->only('email', 'password');
+
+    //Вариант для наглядности при обучении
+    $mail=$data['email_login'];
+    $password=$data['password_login'];
+    // dd($mail, $password);
+
+    $credentials=[
+        'email'=>$mail,
+        'password'=>$password,
+    ];
+
+    if (\Illuminate\Support\Facades\Auth::attempt($credentials)) {
+        // echo('Аутентификация успешна...');
+        return redirect()->route('admin-member-auth.blog');
+    }
 })->name('admin-login-auth.blog');
 
-Route::get('admin.logout', function(){
-
+Route::get('/admin/logout', function(){
 })->name('admin-logout.blog');
+
+Route::get('/admin/member', function(){
+})->name('admin-member-auth.blog');
 //|-------------------------------------------------------------------------------------|
 //|                                                                                     |
 //|-------------------------------------------------------------------------------------|

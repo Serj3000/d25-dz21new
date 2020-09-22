@@ -16,13 +16,13 @@
             @error('email_login')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-        <input type="text" name="email_login">
+        <input type="text" name="email_login" value="ytorp@example.net">
         <br>
         <h4>Password:</h4>
             @error('password_login')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-        <input type="password" name="password_login">
+        <input type="password" name="password_login" value="ascvbg">
         <br><br>
         <button type="submit" name="button_login" value="Отправить">Отправить</button>
         <hr>
