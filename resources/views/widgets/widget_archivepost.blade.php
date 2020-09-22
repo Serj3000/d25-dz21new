@@ -17,8 +17,8 @@
     {{$month ?? '' }} | {{$year ?? ''}} - ({{$iteam_count ?? ''}})
 
     <br>
-    {{dd($archives)}}
     @if(!empty($archives))
+    {{dd($archives)}}
 
         @foreach($archives as $year=>$frog)
             {{-- {{$frog}} --}}

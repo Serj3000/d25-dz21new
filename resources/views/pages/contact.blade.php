@@ -41,7 +41,9 @@
                                     
                                     <!-- Contact Form Area -->
                                     <div class="contact-form-area">
-                                        <form action="#" method="post">
+
+                                        <form action="{{route('contact_form')}}" method="post">
+                                            @csrf
                                             <div class="row">
                                                 <div class="col-12 col-lg-6">
                                                     <div class="form-group">
@@ -63,6 +65,7 @@
                                                 </div>
                                             </div>
                                         </form>
+
                                     </div>
                                 </div>
                             </div>

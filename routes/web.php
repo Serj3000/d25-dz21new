@@ -242,7 +242,8 @@ Route::get('/item-arch-post/{year?}/{month?}', function($year='2020', $month=nul
             ->get();
 
         // //Формируем список всех постов в порядке убывания по дате обновления latest('updated_at')
-        $items=\App\Post::latest('updated_at')->get();
+        $items=\App\Post::
+        latest('updated_at')->get();
 
         // //Формируем массивы по: дате $year_arch и месяцу $month_arch для всех постов
         foreach($items as $item){
@@ -255,7 +256,7 @@ Route::get('/item-arch-post/{year?}/{month?}', function($year='2020', $month=nul
             $iteam_count=array_count_values($year_arch);
             $iteam_count_month=array_count_values($month_arch);
 
-            dd($year_arch, $month_arch);
+            //dd($year_arch, $month_arch);
 
         // //Сортируем и выводим мясяцы по годам
         foreach($iteam_count as $arr_key=>$arr_value){
@@ -368,6 +369,15 @@ Route::get('/item-arch/{year?}/{month?}', function($year='2020', $month=null){
         'iteam_month'=>$iteam_count_month,
         'archives'=>$archives,
     ]);
+
+                        // public function index()
+                        // {
+                        //     $posts = \App\Post::latest()
+                        //         ->filter(request(['month', 'year']))
+                        //         ->get();
+
+                        //     return view('welcome', compact('posts'));
+                        // }
 });
 
 Route::fallback(function() {
@@ -375,6 +385,27 @@ Route::fallback(function() {
                     ->paginate(5);
     return view('index', ['params'=>$posts]);
 });
+
+Route::post('/contact_form', function(){
+    return view('pages.contact_form');
+})->name('contact_form');
+
+
+
+Route::get('/admin/login', function(){
+    return view('admin.login');
+})->name('admin-login-get.blog');
+
+Route::post('/admin/login', function(\Illuminate\Http\Request $request){
+    $date=$request->validate([
+        'email_login'=>'required|email|exists:users,email',
+        'password_login'=>'required|min:2|max:25',
+    ]);
+})->name('admin-login-auth.blog');
+
+Route::get('admin.logout', function(){
+
+})->name('admin-logout.blog');
 //|-------------------------------------------------------------------------------------|
 //|                                                                                     |
 //|-------------------------------------------------------------------------------------|
