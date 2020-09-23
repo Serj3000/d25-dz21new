@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
+
+use Illuminate\Support\Facades\Auth;
 // use Illuminate\Contracts\Support\Renderable;
 /*
 |
@@ -412,17 +414,24 @@ Route::post('/admin/login', function(\Illuminate\Http\Request $request){
         'email'=>$mail,
         'password'=>$password,
     ];
+    // dd($credentials);
 
     if (\Illuminate\Support\Facades\Auth::attempt($credentials)) {
-        // echo('Аутентификация успешна...');
+        // 'Аутентификация успешна...';
+        $usered = \Illuminate\Support\Facades\Auth::user();
         return redirect()->route('admin-member-auth.blog');
+    }else{
+        echo '<br>Аутентификация не пройдена';
     }
 })->name('admin-login-auth.blog');
 
 Route::get('/admin/logout', function(){
+    // \Illuminate\Support\Facades\Auth::logout();
 })->name('admin-logout.blog');
 
 Route::get('/admin/member', function(){
+    $usered =Auth::user();
+    dd($usered);
 })->name('admin-member-auth.blog');
 //|-------------------------------------------------------------------------------------|
 //|                                                                                     |

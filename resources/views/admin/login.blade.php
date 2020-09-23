@@ -22,7 +22,8 @@
             @error('password_login')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
-        <input type="password" name="password_login" value="ascvbg">
+        <input type="password" name="password_login" value="password"> 
+        {{-- ascvbg --}}
         <br><br>
         <button type="submit" name="button_login" value="Отправить">Отправить</button>
         <hr>
