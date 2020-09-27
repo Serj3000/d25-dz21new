@@ -26,8 +26,16 @@
         {{-- ascvbg --}}
         <br><br>
         <button type="submit" name="button_login" value="Отправить">Отправить</button>
+        <button type="submit" name="button_cencel" value="Cencel">Отменить</button>
         <hr>
     </form>
-
+<h4>$usered</h4>
+@if(isset($usered))
+{{$usered}}
+<br>
+<h4>Auth::user()</h4>
+{{$usered =Auth::user()}}
+@endif
+<hr>
 </body>
 </html>

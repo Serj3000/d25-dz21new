@@ -416,6 +416,12 @@ Route::post('/admin/login', function(\Illuminate\Http\Request $request){
     ];
     // dd($credentials);
 
+    if(isset($_POST['button_cencel'])){
+        return redirect()->route('index.blog');
+        // return redirect()->back()->withInput();
+        // return redirect('test')->with(['blogs'=>true]);
+    }
+
     if (\Illuminate\Support\Facades\Auth::attempt($credentials)) {
         // 'Аутентификация успешна...';
         $usered = \Illuminate\Support\Facades\Auth::user();
@@ -431,7 +437,7 @@ Route::get('/admin/logout', function(){
 
 Route::get('/admin/member', function(){
     $usered =Auth::user();
-    dd($usered);
+    return view('admin.login', ['usered'=>$usered]);
 })->name('admin-member-auth.blog');
 //|-------------------------------------------------------------------------------------|
 //|                                                                                     |
