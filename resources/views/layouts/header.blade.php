@@ -20,9 +20,12 @@
                                 <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
                                 <a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a>
                             <a href="{{route('admin-login-get.blog')}}"><i aria-hidden="true">Login</i></a>
+                            <a href="{{route('admin-logout.blog')}}"><i aria-hidden="true">Logout</i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+{{\Illuminate\Support\Facades\Auth::user()}}

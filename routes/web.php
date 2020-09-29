@@ -416,10 +416,15 @@ Route::post('/admin/login', function(\Illuminate\Http\Request $request){
     ];
     // dd($credentials);
 
+    //Редирект если в форме нажата кнопка Login
     if(isset($_POST['button_cencel'])){
         return redirect()->route('index.blog');
         // return redirect()->back()->withInput();
         // return redirect('test')->with(['blogs'=>true]);
+    }
+    //Редирект если в форме нажата кнопка Logout
+    if(isset($_POST['button_logout'])){
+        return redirect()->route('admin-logout.blog');
     }
 
     if (\Illuminate\Support\Facades\Auth::attempt($credentials)) {
@@ -432,7 +437,8 @@ Route::post('/admin/login', function(\Illuminate\Http\Request $request){
 })->name('admin-login-auth.blog');
 
 Route::get('/admin/logout', function(){
-    // \Illuminate\Support\Facades\Auth::logout();
+    \Illuminate\Support\Facades\Auth::logout();
+    return redirect()->route('index.blog');
 })->name('admin-logout.blog');
 
 Route::get('/admin/member', function(){
